@@ -22,7 +22,7 @@ We welcome contributions from everyone. Here are some ways you can contribute:
 
 ## Support
 
-For any issues or questions, please open an issue on our GitHub repository or contact us at lucetrez@gmail.com.
+For any issues or questions, please open an issue on our GitHub repository or contact us at support@glnk.dev.
 
 ## License
 
