@@ -26,7 +26,7 @@ For any issues or questions, please open an issue on our GitHub repository or co
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/glnk-dev/.github/blob/main/LICENSE) file for details.
 
 ## Acknowledgments
 
