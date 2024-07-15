@@ -12,6 +12,10 @@ Welcome to **glnk.dev**, your go-to solution for creating personalized short lin
 - **GitHub Pages Integration:** Utilize GitHub Pages for hosting HTML redirection.
 - **Simple Redirection:** Redirect to any URL with a simple, memorable link.
 
+## Registration
+
+To get started with glnk.dev and receive your personalized domain, please fill out our [Registration Form](https://forms.gle/s9RHN2yHukbgAxkk6). We look forward to welcoming you to our community!
+
 ## Contribution Guidelines
 
 We welcome contributions from everyone. Here are some ways you can contribute:
