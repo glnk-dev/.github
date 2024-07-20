@@ -85,11 +85,8 @@ for subpath in "${!redirect_mapping[@]}"; do
     # Check if the subpath contains placeholders
     if [[ "$subpath" == *"{$"* ]]; then
         # Create a directory for the subpath with a placeholder
-        base_path=${subpath%\/*}
+        base_path=$(echo "$subpath" | cut -d'/' -f1-2)
         mkdir -p "build/$base_path"
-
-        # Generate a redirect link with the placeholder replaced
-        redirect_link_with_placeholder=$(replace_placeholders "$redirect_link" "$1")
 
         # Write the content to the index.html file
         cat <<EOL >"build/$base_path/index.html"
@@ -98,17 +95,17 @@ for subpath in "${!redirect_mapping[@]}"; do
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to $redirect_link_with_placeholder</title>
-    <link rel="canonical" href="$redirect_link_with_placeholder">
-    <link rel="icon" href="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.ico" type="image/x-icon">
-    <meta http-equiv="refresh" content="0; URL=$redirect_link_with_placeholder">
+    <title>Redirecting to $redirect_link</title>
+    <link rel="canonical" href="$redirect_link">
+    <link rel="icon" href="https://glnk.dev/favicon.ico" type="image/x-icon">
+    <meta http-equiv="refresh" content="0; URL=$redirect_link">
     <meta property="og:title" content="$subpath - $glnk_username.glnk.dev">
-    <meta property="og:description" content="Redirecting to $redirect_link_with_placeholder">
+    <meta property="og:description" content="Redirecting to $redirect_link">
     <meta property="og:image" content="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.png">
     <meta property="og:url" content="https://$glnk_username.glnk.dev$subpath">
 </head>
 <body>
-    <p>If you are not redirected, <a href="$redirect_link_with_placeholder">click here</a>.</p>
+    <p>If you are not redirected, <a href="$redirect_link">click here</a>.</p>
 </body>
 </html>
 EOL
