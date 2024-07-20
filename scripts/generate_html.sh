@@ -60,50 +60,84 @@ echo "Generated $glnk_html successfully!"
 
 declare -A redirect_mapping
 
-# Assuming glnk.json contains a valid JSON object with keys and values.
-# For example:
-# {
-#   "subpath1": "redirect_link1",
-#   "subpath2": "redirect_link2",
-#   ...
-# }
-
 # Read the JSON file and populate the associative array
 while read -r subpath redirect_link; do
     redirect_mapping["$subpath"]=$redirect_link
 done < <(jq -r 'to_entries[] | "\(.key) \(.value)"' glnk.json)
 
-# Iterate through the associative array to get the matching order
+# Function to replace placeholders with actual values
+replace_placeholders() {
+    local template=$1
+    shift
+    local values=("$@")
+    local result="$template"
+    for i in "${!values[@]}"; do
+        result="${result//\{\$((i+1))\}/${values[i]}}"
+    done
+    echo "$result"
+}
+
+# Iterate through the associative array to create HTML files for each path
 for subpath in "${!redirect_mapping[@]}"; do
     redirect_link="${redirect_mapping[$subpath]}"
     echo "Subpath: $subpath, Redirect Link: $redirect_link"
 
-    # Create the content for the index.html file
-    content="<!DOCTYPE html>
-<html lang=\"en\">
+    # Check if the subpath contains placeholders
+    if [[ "$subpath" == *"{$"* ]]; then
+        # Create a directory for the subpath with a placeholder
+        base_path=${subpath%\/*}
+        mkdir -p "build/$base_path"
+
+        # Generate a redirect link with the placeholder replaced
+        redirect_link_with_placeholder=$(replace_placeholders "$redirect_link" "$1")
+
+        # Write the content to the index.html file
+        cat <<EOL >"build/$base_path/index.html"
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Redirecting to $redirect_link</title>
-    <link rel=\"canonical\" href=\"$redirect_link\">
-    <link rel=\"icon\" href=\"https://glnk.dev/favicon.ico\" type=\"image/x-icon\">
-    <meta http-equiv=\"refresh\" content=\"0; URL=$redirect_link\">
-    <meta property=\"og:title\" content=\"$subpath - $glnk_username.glnk.dev\">
-    <meta property=\"og:description\" content=\"Redirecting to $redirect_link\">
-    <meta property=\"og:image\" content=\"https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.png\">
-    <meta property=\"og:url\" content=\"https://$glnk_username.glnk.dev$subpath\">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to $redirect_link_with_placeholder</title>
+    <link rel="canonical" href="$redirect_link_with_placeholder">
+    <link rel="icon" href="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.ico" type="image/x-icon">
+    <meta http-equiv="refresh" content="0; URL=$redirect_link_with_placeholder">
+    <meta property="og:title" content="$subpath - $glnk_username.glnk.dev">
+    <meta property="og:description" content="Redirecting to $redirect_link_with_placeholder">
+    <meta property="og:image" content="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.png">
+    <meta property="og:url" content="https://$glnk_username.glnk.dev$subpath">
 </head>
 <body>
-    <p>If you are not redirected, <a href=\"$redirect_link\">click here</a>.</p>
+    <p>If you are not redirected, <a href="$redirect_link_with_placeholder">click here</a>.</p>
 </body>
 </html>
-"
+EOL
+    else
+        # Create the directory for the subpath if it doesn't exist
+        mkdir -p "build$subpath"
 
-    # Create the directory for the subpath if it doesn't exist
-    mkdir -p "build$subpath"
-
-    # Write the content to the index.html file
-    echo "$content" >"build$subpath/index.html"
+        # Write the content to the index.html file
+        cat <<EOL >"build$subpath/index.html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to $redirect_link</title>
+    <link rel="canonical" href="$redirect_link">
+    <link rel="icon" href="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.ico" type="image/x-icon">
+    <meta http-equiv="refresh" content="0; URL=$redirect_link">
+    <meta property="og:title" content="$subpath - $glnk_username.glnk.dev">
+    <meta property="og:description" content="Redirecting to $redirect_link">
+    <meta property="og:image" content="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.png">
+    <meta property="og:url" content="https://$glnk_username.glnk.dev$subpath">
+</head>
+<body>
+    <p>If you are not redirected, <a href="$redirect_link">click here</a>.</p>
+</body>
+</html>
+EOL
+    fi
 done
 
 echo "Created subdirectories with index.html files successfully!"
