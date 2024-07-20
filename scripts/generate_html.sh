@@ -122,7 +122,7 @@ EOL
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to $redirect_link</title>
     <link rel="canonical" href="$redirect_link">
-    <link rel="icon" href="https://glnk.dev/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.ico" type="image/x-icon">
     <meta http-equiv="refresh" content="0; URL=$redirect_link">
     <meta property="og:title" content="$subpath - $glnk_username.glnk.dev">
     <meta property="og:description" content="Redirecting to $redirect_link">
