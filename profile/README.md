@@ -2,7 +2,7 @@
 
 <img width="938" alt="스크린샷 2024-06-30 오후 8 19 43" src="https://github.com/glnk-dev/.github/assets/149235148/307b4d56-489f-4a01-bd12-73f82f9989f8">
 
-Welcome to **glnk.dev**, your go-to solution for creating personalized short links with the `<username>.glnk.dev` domain. Inspired by Google's internal go/link, our project aims to simplify URL redirection and provide users with a seamless way to manage their custom links.
+Welcome to **glnk.dev**, your go-to solution for creating personalized short links with a custom domain. Inspired by Google's internal go/link, our project aims to simplify URL redirection and provide users with a seamless way to manage their custom links.
 
 ## Features
 
