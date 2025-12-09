@@ -14,7 +14,7 @@ Welcome to **glnk.dev**, your go-to solution for creating personalized short lin
 
 ## Registration
 
-To get started with glnk.dev and receive your personalized domain, please fill out our [Registration Form](https://forms.gle/s9RHN2yHukbgAxkk6). We look forward to welcoming you to our community!
+To get started with glnk.dev and receive your personalized domain, please fill out our [Registration Form](https://glnk.dev/register). We look forward to welcoming you to our community!
 
 ## Contribution Guidelines
 
