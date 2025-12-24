@@ -1,37 +1,40 @@
-# [glnk.dev](https://glnk.dev) - Short Links, Your Way
+# [glnk.dev](https://glnk.dev) · Short Links, Your Way
 
-<img width="938" alt="Screenshot 2024-06-30" src="https://github.com/glnk-dev/.github/assets/149235148/307b4d56-489f-4a01-bd12-73f82f9989f8">
+![glnk.dev](https://raw.githubusercontent.com/glnk-dev/webapp/main/public/assets/og.png)
 
-Welcome to **glnk.dev**, your go-to solution for creating personalized short links with a custom domain. Inspired by Google's internal go/link, our project aims to simplify URL redirection and provide users with a seamless way to manage their custom links.
+Welcome to **glnk.dev**, your personalized short link solution. Inspired by Google's internal go/links, we provide memorable, custom domains for seamless URL management.
 
-## Features
+## ✨ Features
 
-- **Personalized Domains:** Get your own `<username>.glnk.dev` domain for easy-to-remember links.
-- **Custom Paths:** Map any path under your personalized domain, such as `<username>.glnk.dev/any-path`, to your complex URLs.
-- **Automated Setup:** Fully automated process for accepting and mapping custom go links.
-- **GitHub Pages Integration:** Utilize GitHub Pages for hosting HTML redirection.
-- **Simple Redirection:** Redirect to any URL with a simple, memorable link.
+- **Your Personal Domain** — Get `<username>.glnk.dev` for easy-to-remember links
+- **Custom Paths** — Map any path like `username.glnk.dev/github` to complex URLs
+- **Web Interface** — Manage your links through a simple, intuitive dashboard
+- **Instant Setup** — Create your site and start redirecting in seconds
+- **GitHub Integration** — Sign in with GitHub, no extra accounts needed
 
-## Registration
+## 🚀 Get Started
 
-To get started with glnk.dev and receive your personalized domain, please fill out our [Registration Form](https://glnk.dev/register). We look forward to welcoming you to our community!
+Visit [glnk.dev](https://glnk.dev) and sign in with GitHub to create your personalized short link page.
 
-## Contribution Guidelines
+## 🤝 Contributing
 
-We welcome contributions from everyone. Here are some ways you can contribute:
+We welcome contributions! Here's how you can help:
 
-- **Report Bugs:** Found a bug? Please create an issue.
-- **Feature Requests:** Have an idea for a new feature? Let us know by opening an issue.
-- **Pull Requests:** Ready to contribute? Check our open issues and submit a pull request.
+- **Report Bugs** — Found an issue? [Open a bug report](https://github.com/glnk-dev/webapp/issues)
+- **Feature Requests** — Have ideas? [Share them with us](https://github.com/glnk-dev/webapp/issues)
+- **Pull Requests** — Ready to code? Check our open issues and submit a PR
+- **Join the Team** — Interested in contributing regularly? [Join as a developer](https://glnk.dev/join)
 
-## Support
+## 📬 Contact
 
-For any issues or questions, please open an issue on our GitHub repository or contact us at support@glnk.dev.
+- **X (Twitter):** [@GlnkDev](https://x.com/GlnkDev)
+- **Email:** [support@glnk.dev](mailto:support@glnk.dev)
+- **GitHub:** [github.com/glnk-dev](https://github.com/glnk-dev)
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/glnk-dev/.github/blob/main/LICENSE) file for details.
 
-## Acknowledgments
+---
 
-Special thanks to all contributors and the open-source community for their continuous support and inspiration.
+Made with ♥ by the glnk.dev community
